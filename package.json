@@ -1,0 +1,50 @@
+{
+  "name": "enumerable-linq",
+  "version": "1.0.0",
+  "description": "linq library for data",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "NODE_ENV=production babel src --out-dir dist",
+    "prepublishOnly": "npm run build",
+    "documentation": "documentation"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikzh/enumerable-linq.git"
+  },
+  "keywords": [
+    "pair",
+    "data structure",
+    "native"
+  ],
+  "author": "Viktor zhukovsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikzh/enumerable-linq/issues"
+  },
+  "homepage": "https://github.com/vikzh/enumerable-linq#readme",
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.5.0",
+    "documentation": "^9.3.1",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jest": "^22.3.2",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0"
+  }
+}
