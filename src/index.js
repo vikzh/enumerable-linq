@@ -3,15 +3,9 @@ class Enumerable {
     this.collection = collection;
   }
 
-  where = (f) => {
-    this.collection = this.collection.filter(f);
-    return this.collection;
-  };
+  where = f => new Enumerable(this.collection.filter(f));
 
-  select = (f) => {
-    this.collection = this.collection.map(f);
-    return this.collection;
-  };
+  select = f => new Enumerable(this.collection.map(f));
 
   orderBy = (f, direction = 'asc') => {
     const compareResult = direction === 'asc' ? 1 : -1;
@@ -28,11 +22,10 @@ class Enumerable {
 
       return 0;
     };
-    this.collection.sort(comparator);
-    return this;
+    return new Enumerable(this.collection.sort(comparator));
   };
 
-  toArray = () => this.collection.slice();
+  toArray = () => this.collection;
 }
 
 export default Enumerable;
