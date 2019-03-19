@@ -8,8 +8,18 @@ class Enumerable {
     return new Enumerable(this.collection.slice(), this.operations.concat(operation));
   }
 
-  where(f) {
-    return this.addOperation(coll => coll.filter(f));
+  where(...predicates) {
+    const newOperations = predicates.map((predicate) => {
+      if (typeof predicate === 'function') {
+        return coll => coll.filter(predicate);
+      }
+
+      const checkingKeys = Object.keys(predicate);
+      return coll => coll.filter(
+        element => checkingKeys.every(key => predicate[key] === element[key]),
+      );
+    });
+    return this.addOperation(newOperations);
   }
 
   select(f) {
