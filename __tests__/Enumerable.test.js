@@ -52,50 +52,7 @@ describe('Enumerable', () => {
   });
 
   it('#toArray', () => {
-    expect(coll.toArray()).toEqual([
-      {
-        age: 37,
-        name: 'Bobbie Hanson',
-        gender: 'female',
-        group: 6,
-      },
-      {
-        age: 38,
-        name: 'Leon Oneill',
-        gender: 'male',
-        group: 7,
-      },
-      {
-        age: 26,
-        name: 'Leach Christensen',
-        gender: 'male',
-        group: 9,
-      },
-      {
-        age: 27,
-        name: 'Brandie Hancock',
-        gender: 'female',
-        group: 1,
-      },
-      {
-        age: 38,
-        name: 'Burt Mann',
-        gender: 'male',
-        group: 8,
-      },
-      {
-        age: 24,
-        name: 'Sandy Mckinney',
-        gender: 'female',
-        group: 8,
-      },
-      {
-        age: 28,
-        name: 'Lesley Pacheco',
-        gender: 'female',
-        group: 6,
-      },
-    ]);
+    expect(coll.toArray()).toEqual(people);
   });
 
   it('#length', () => {
