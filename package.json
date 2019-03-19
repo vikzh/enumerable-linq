@@ -1,6 +1,6 @@
 {
   "name": "enumerable-linq",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "linq library for data",
   "main": "dist/index.js",
   "scripts": {
@@ -14,9 +14,9 @@
     "url": "git+https://github.com/vikzh/enumerable-linq.git"
   },
   "keywords": [
-    "pair",
-    "data structure",
-    "native"
+    "linq",
+    "enumerable",
+    "fluent"
   ],
   "author": "Viktor zhukovsky",
   "license": "ISC",
