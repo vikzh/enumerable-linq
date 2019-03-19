@@ -51,6 +51,104 @@ describe('Enumerable', () => {
     coll = new Enumerable(people);
   });
 
+  it('#toArray', () => {
+    expect(coll.toArray()).toEqual([
+      {
+        age: 37,
+        name: 'Bobbie Hanson',
+        gender: 'female',
+        group: 6,
+      },
+      {
+        age: 38,
+        name: 'Leon Oneill',
+        gender: 'male',
+        group: 7,
+      },
+      {
+        age: 26,
+        name: 'Leach Christensen',
+        gender: 'male',
+        group: 9,
+      },
+      {
+        age: 27,
+        name: 'Brandie Hancock',
+        gender: 'female',
+        group: 1,
+      },
+      {
+        age: 38,
+        name: 'Burt Mann',
+        gender: 'male',
+        group: 8,
+      },
+      {
+        age: 24,
+        name: 'Sandy Mckinney',
+        gender: 'female',
+        group: 8,
+      },
+      {
+        age: 28,
+        name: 'Lesley Pacheco',
+        gender: 'female',
+        group: 6,
+      },
+    ]);
+  });
+
+  it('#length', () => {
+    expect(coll.length).toBe(7);
+  });
+
+  it('#orderBy', () => {
+    expect(coll.orderBy(person => person.age).toArray()).toEqual([
+      {
+        age: 24,
+        name: 'Sandy Mckinney',
+        gender: 'female',
+        group: 8,
+      },
+      {
+        age: 26,
+        name: 'Leach Christensen',
+        gender: 'male',
+        group: 9,
+      },
+      {
+        age: 27,
+        name: 'Brandie Hancock',
+        gender: 'female',
+        group: 1,
+      },
+      {
+        age: 28,
+        name: 'Lesley Pacheco',
+        gender: 'female',
+        group: 6,
+      },
+      {
+        age: 37,
+        name: 'Bobbie Hanson',
+        gender: 'female',
+        group: 6,
+      },
+      {
+        age: 38,
+        name: 'Leon Oneill',
+        gender: 'male',
+        group: 7,
+      },
+      {
+        age: 38,
+        name: 'Burt Mann',
+        gender: 'male',
+        group: 8,
+      },
+    ]);
+  });
+
   it('#where', () => {
     const firstWhereResult = coll.where(person => person.gender === 'male');
     const expectedFirstWhere = [people[1], people[2], people[4]];
