@@ -34,11 +34,22 @@ class Enumerable {
     return this.addOperation(coll => coll.sort(comparator));
   }
 
+  getProcessedCollection() {
+    if (!this.memo) {
+      this.memo = this.operations.reduce(
+        (acc, curOperation) => curOperation(acc),
+        this.collection.slice(),
+      );
+    }
+    return this.memo;
+  }
+
   toArray() {
-    return this.operations.reduce(
-      (acc, curOperation) => curOperation(acc),
-      this.collection.slice(),
-    );
+    return this.getProcessedCollection();
+  }
+
+  get length() {
+    return this.getProcessedCollection().length;
   }
 }
 
