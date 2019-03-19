@@ -60,50 +60,10 @@ describe('Enumerable', () => {
   });
 
   it('#orderBy', () => {
-    expect(coll.orderBy(person => person.age).toArray()).toEqual([
-      {
-        age: 24,
-        name: 'Sandy Mckinney',
-        gender: 'female',
-        group: 8,
-      },
-      {
-        age: 26,
-        name: 'Leach Christensen',
-        gender: 'male',
-        group: 9,
-      },
-      {
-        age: 27,
-        name: 'Brandie Hancock',
-        gender: 'female',
-        group: 1,
-      },
-      {
-        age: 28,
-        name: 'Lesley Pacheco',
-        gender: 'female',
-        group: 6,
-      },
-      {
-        age: 37,
-        name: 'Bobbie Hanson',
-        gender: 'female',
-        group: 6,
-      },
-      {
-        age: 38,
-        name: 'Leon Oneill',
-        gender: 'male',
-        group: 7,
-      },
-      {
-        age: 38,
-        name: 'Burt Mann',
-        gender: 'male',
-        group: 8,
-      },
-    ]);
+    const orderedColl = coll.orderBy(person => person.age);
+    expect(orderedColl.toArray()).not.toEqual(people);
+    const expectedAges = [24, 26, 27, 28, 37, 38, 38];
+    expect(orderedColl.select(person => person.age).toArray()).toEqual(expectedAges);
   });
 
   it('#where', () => {
